@@ -1,0 +1,57 @@
+swagger: "2.0"
+info:
+  version: development
+  description: hello
+  title: hello
+host: "???"
+basePath: /
+schemes:
+  - https
+paths:
+  /hello:
+    post:
+      consumes:
+        - application/json
+      produces:
+        - application/json
+      parameters:
+        - in: body
+          name: name
+          description: register name
+          schema:
+            $ref: '#definitions/HelloRequest'
+  /hello/{name}:
+    get:
+      produces:
+        - application/json
+      parameters:
+        - in: path
+          name: name
+          type: string
+          required: true
+          description: name to say hello
+      responses:
+        200:
+          description: successful operation
+          schema:
+            $ref: '#/definitions/HelloResponse'
+
+definitions:
+  HelloRequest:
+    type: object
+    properties:
+      name:
+        type: string
+    required:
+      - name
+
+  HelloResponse:
+    type: object
+    properties:
+      name:
+        type: string
+      greeting:
+        type: string
+    required:
+      - name
+      - greeting
