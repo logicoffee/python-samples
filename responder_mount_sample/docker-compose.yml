@@ -1,0 +1,14 @@
+version: '3.4'
+
+services:
+  responder-test:
+    image: responder-test
+    build: ./app
+    #command: gunicorn -k uvicorn.workers.UvicornWoker --bind 8080 --log-level debug --reload main:api
+    command: uvicorn --host 0.0.0.0 --port 8080 --log-level debug --reload main:api
+    #command: uvicorn --port 8080 --log-level debug --reload example:app
+    #command: python main.py
+    volumes:
+      - ./app:/app/
+    ports:
+      - '8080:8080'
