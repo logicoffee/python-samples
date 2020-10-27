@@ -7,7 +7,7 @@ flask-cors==3.0.3
 strict-rfc3339==0.7
 PyJWT==1.6.4
 requests==2.20.0
-cryptography==2.3.1
+cryptography==3.2
 flasgger==0.9.2
 PyYAML==5.1
 pytest==4.6.2
